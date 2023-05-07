@@ -7,55 +7,69 @@ using System;
 
 namespace RPG.UI
 {
-	public class UIManager : MonoBehaviour
-	{
-		[SerializeField]
-		private SkillManager skillManager;
-		[SerializeField]
-		private StatusInfo statusInfoUI;
+    public class UIManager : MonoBehaviour
+    {
+        public static UIManager Instance;
+        [SerializeField] private Tooltips tooltips;
 
-		[SerializeField]
-		private Image currentHPImage;
-		[SerializeField]
-		private Image maxHPImage;
-		[SerializeField]
-		private TextMeshProUGUI hpText;
-		[SerializeField]
-		private Image currentManaImage;
-		[SerializeField]
-		private Image maxManaImage;
-		[SerializeField]
-		private TextMeshProUGUI manaText;
 
-		private void Awake()
-		{
-			if (skillManager == null)
-				skillManager = GameObject.Find("Manager").GetComponent<SkillManager>();
+        [Header("Status")]
+        [SerializeField]
+        private SkillManager skillManager;
+        [SerializeField]
+        private StatusInfo statusInfoUI;
 
-			skillManager.OnInitialize += SetupInitialUI;
-			skillManager.OnStatChange += StatChange;
-		}
+        [SerializeField]
+        private Image currentHPImage;
+        [SerializeField]
+        private Image maxHPImage;
+        [SerializeField]
+        private TextMeshProUGUI hpText;
+        [SerializeField]
+        private Image currentManaImage;
+        [SerializeField]
+        private Image maxManaImage;
+        [SerializeField]
+        private TextMeshProUGUI manaText;
+
+        private void Awake()
+        {
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(gameObject);
+
+            if (skillManager == null)
+                skillManager = GameObject.Find("Manager").GetComponent<SkillManager>();
+
+            skillManager.OnInitialize += SetupInitialUI;
+            skillManager.OnStatChange += StatChange;
+        }
 
         private void SetupInitialUI()
-		{
-			hpText.text = skillManager.stat.currentHP.ToString() + "/" + skillManager.stat.maxHP.ToString();
-			manaText.text = skillManager.stat.currentMana.ToString() + "/" + skillManager.stat.maxMana.ToString();
+        {
+            hpText.text = skillManager.stat.currentHP.ToString() + "/" + skillManager.stat.maxHP.ToString();
+            manaText.text = skillManager.stat.currentMana.ToString() + "/" + skillManager.stat.maxMana.ToString();
 
-			currentHPImage.fillAmount = (float)skillManager.stat.currentHP / (float)skillManager.stat.maxHP;
-			currentManaImage.fillAmount = (float)skillManager.stat.currentMana / (float)skillManager.stat.maxMana;
+            currentHPImage.fillAmount = (float)skillManager.stat.currentHP / (float)skillManager.stat.maxHP;
+            currentManaImage.fillAmount = (float)skillManager.stat.currentMana / (float)skillManager.stat.maxMana;
 
-			maxHPImage.rectTransform.sizeDelta = new Vector2(skillManager.stat.maxHP, 50);
-			maxManaImage.rectTransform.sizeDelta = new Vector2(skillManager.stat.maxMana, 50);
+            maxHPImage.rectTransform.sizeDelta = new Vector2(skillManager.stat.maxHP, 50);
+            maxManaImage.rectTransform.sizeDelta = new Vector2(skillManager.stat.maxMana, 50);
 
-			statusInfoUI.Initialize();
-		}
+            statusInfoUI.Initialize();
+        }
 
-		private void StatChange()
-		{
-			throw new NotImplementedException();
-		}
+        public void ShowTooltip(string value) => tooltips.ShowTooltip(value);
+
+        public void HideTooltip() => tooltips.HideTooltip();
+
+        private void StatChange()
+        {
+            throw new NotImplementedException();
+        }
 
 
-		public SkillManager SkillManager => skillManager;
-	}
+        public SkillManager SkillManager => skillManager;
+    }
 }

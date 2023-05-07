@@ -9,6 +9,9 @@ namespace RPG.UI
         [SerializeField]
         private StatusInfoChild statusInfoChild;
 
+        /// <summary>
+        /// Maybe we can add this feature in future
+        /// </summary>
         public void Initialize()
         {
             SkillManager skillManager = GetComponentInParent<UIManager>().SkillManager;
