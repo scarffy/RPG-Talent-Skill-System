@@ -13,24 +13,19 @@ namespace RPG.UI
         [SerializeField] private Tooltips tooltips;
 
 
-        [Header("Status")]
-        [SerializeField]
-        private SkillManager skillManager;
-        [SerializeField]
-        private StatusInfo statusInfoUI;
+        [Header("Skill")]
+        [SerializeField] private SkillManager skillManager;
+        [SerializeField] private SkillHUDList skillHudList;
 
-        [SerializeField]
-        private Image currentHPImage;
-        [SerializeField]
-        private Image maxHPImage;
-        [SerializeField]
-        private TextMeshProUGUI hpText;
-        [SerializeField]
-        private Image currentManaImage;
-        [SerializeField]
-        private Image maxManaImage;
-        [SerializeField]
-        private TextMeshProUGUI manaText;
+        [Header("Statuses")]
+        [SerializeField] private StatusInfo statusInfoUI;
+
+        [SerializeField] private Image currentHPImage;
+        [SerializeField] private Image maxHPImage;
+        [SerializeField] private TextMeshProUGUI hpText;
+        [SerializeField] private Image currentManaImage;
+        [SerializeField] private Image maxManaImage;
+        [SerializeField] private TextMeshProUGUI manaText;
 
         private void Awake()
         {
@@ -44,6 +39,8 @@ namespace RPG.UI
 
             skillManager.OnInitialize += SetupInitialUI;
             skillManager.OnStatChange += StatChange;
+
+            skillHudList.Initialize();
         }
 
         private void SetupInitialUI()

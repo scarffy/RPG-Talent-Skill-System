@@ -44,3 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4134d92bf3d7441fb99a36ad6c7afeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stat:
+    currentLevel: 1
+    maxLevel: 20
+    currentHP: 0
+    maxHP: 100
+    currentMana: 0
+    maxMana: 100
+    maxDamage: 0
+  SkillDataList:
+  - {fileID: 11400000, guid: 858d59f286f574ee7ad809e920393b2b, type: 2}
+  - {fileID: 11400000, guid: 968f15648f3929d41ba4f3c8573db57a, type: 2}
+  testSkill: {fileID: 11400000, guid: 858d59f286f574ee7ad809e920393b2b, type: 2}

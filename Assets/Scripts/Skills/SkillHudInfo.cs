@@ -9,6 +9,11 @@ namespace RPG.UI
     {
         [SerializeField] private string _contentText;
 
+        public void SetContent(string content)
+        {
+            _contentText = content;
+        }
+
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
             ShowTooltip(_contentText);

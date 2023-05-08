@@ -6,8 +6,7 @@ namespace RPG.UI
 {
     public class StatusInfo : MonoBehaviour
     {
-        [SerializeField]
-        private StatusInfoChild statusInfoChild;
+        [SerializeField] private StatusInfoChild statusInfoChild;
 
         /// <summary>
         /// Maybe we can add this feature in future
