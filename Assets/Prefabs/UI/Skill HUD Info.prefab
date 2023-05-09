@@ -303,3 +303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _contentText: 
+  _skillSprite: {fileID: 6177111823675242826}
+  _cooldownImage: {fileID: 796227383421141804}
+  animationTime: 0

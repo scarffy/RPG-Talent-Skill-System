@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63384a29bfd0c48788f1935cddd3eabd, type: 3}
   m_Name: IceSpear
   m_EditorClassIdentifier: 
-  skillIcon: {fileID: 0}
-  skillName: 
-  skillDescription: 
-  skillManaCost: 0
-  skillCoolDown: 0
+  skillIcon: {fileID: 21300000, guid: 8cc7ca0e29ced7b4f84e8c4ef7deb28b, type: 3}
+  skillName: Ice Spear
+  skillDescription: Null
+  skillManaCost: 25
+  skillCoolDown: 5
   skillEffect: 
   SkillType: 0

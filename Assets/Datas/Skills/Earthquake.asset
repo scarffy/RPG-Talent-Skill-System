@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Earthquake
   m_EditorClassIdentifier: 
   skillIcon: {fileID: 21300000, guid: 2c041a4276078564d94a19dbbda2f0f8, type: 3}
-  skillName: 
-  skillDescription: 
+  skillName: Earthquake
+  skillDescription: Null
   skillManaCost: 15
   skillCoolDown: 5
   skillEffect: 
-  SkillType: 0
+  SkillType: 1

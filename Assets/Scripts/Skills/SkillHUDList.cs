@@ -6,29 +6,33 @@ namespace RPG.UI
 {
     public class SkillHUDList : MonoBehaviour
     {
-        private List<SkillHudInfo> SkillInfoList = new List<SkillHudInfo>();
+        [SerializeField] private List<SkillHudInfo> _skillInfoList = new List<SkillHudInfo>();
 
         private void Awake()
         {
-            if (SkillInfoList.Count == 0)
+            if (_skillInfoList.Count == 0)
             {
                 foreach (Transform child in transform)
                 {
                     SkillHudInfo info = child.GetComponent<SkillHudInfo>();
-                    SkillInfoList.Add(info);
+                    _skillInfoList.Add(info);
                 }
             }
         }
 
         public void Initialize()
         {
-            if (SkillInfoList != null)
+            if (_skillInfoList != null)
             {
+                Debug.Log("LOG [SkillHUDList]: Initialize script");
                 for (int i = 0; i < UIManager.Instance.SkillManager.SkillList.Count; i++)
                 {
-                    SkillInfoList[i].SetContent(UIManager.Instance.SkillManager.SkillList[i].skillName);
+                    _skillInfoList[i].SetContent(UIManager.Instance.SkillManager.SkillList[i].skillName);
+                    _skillInfoList[i].SetSprite(UIManager.Instance.SkillManager.SkillList[i].skillIcon);
                 }
             }
         }
+
+        public List<SkillHudInfo> skillHudInfos => _skillInfoList;
     }
 }

@@ -68,5 +68,6 @@ namespace RPG.UI
 
 
         public SkillManager SkillManager => skillManager;
+        public SkillHUDList SkillHudList => skillHudList;
     }
 }

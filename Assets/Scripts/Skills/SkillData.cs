@@ -24,15 +24,14 @@ namespace RPG
         }
         public skillType SkillType = skillType.None;
 
-        private bool isCooldown = false;
+        [SerializeField] private bool isCooldown = false;
 
         public IEnumerator CoolDown(float cdValue)
         {
-            Debug.Log("Log [SkillData]: Entering CoolDown coroutine");
+            Debug.Log($"Log [SkillData]: Entering CoolDown Coroutine");
             isCooldown = true;
             yield return new WaitForSeconds(skillCoolDown);
             isCooldown = false;
-            Debug.Log($"Log [SkillData]: Finished Cooldown coroutine");
         }
 
         public bool IsCoolDown => isCooldown;

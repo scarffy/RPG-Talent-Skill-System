@@ -34,7 +34,9 @@ namespace RPG
             }
             if (Input.GetKeyUp(KeyCode.E))
             {
-                TriggerSkill(SkillDataList[2]);
+                if (SkillDataList.Count > 2)
+                    TriggerSkill(SkillDataList[2]);
+                else Debug.LogWarning("Log [SkillManager]: Skill Data List is out of range");
             }
             if (Input.GetKeyUp(KeyCode.R))
             {
@@ -60,14 +62,17 @@ namespace RPG
             }
             else if (SkillDataList.Contains(skillData))
             {
-                Debug.Log($"Log [SkillManager]: Trigger skill contain skill data {skillData.skillName}");
+                Debug.Log("LOG [SkillManager]: Trigger Skill");
                 int index = SkillDataList.IndexOf(skillData);
-                Debug.Log($"Log [SkillManager]: Index trigger is {index}");
 
                 //! Check if we are in cooldown
                 if (!CheckIfCooldown(skillData, index))
                 {
                     StartCoroutine(SkillDataList[index].CoolDown(skillData.skillCoolDown));
+
+                    //! Get Skill Hud Info and trigger SkillHudInfo
+                    Debug.Log("LOG [SkillManager]: Start set cool down coroutine");
+                    StartCoroutine(UI.UIManager.Instance.SkillHudList.skillHudInfos[index].SetCoolDown(skillData.skillCoolDown));
                 }
             }
         }
