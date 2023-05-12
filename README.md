@@ -1,6 +1,6 @@
 # RPG-Talent-Skill-System
 
-This system is using ![scriptable object](https://docs.unity3d.com/Manual/class-ScriptableObject.html) from Unity 
+This system is using <a href="https://docs.unity3d.com/Manual/class-ScriptableObject.html">scriptable object</a> from Unity 
 <br>
 
 ###### Creating new skill
