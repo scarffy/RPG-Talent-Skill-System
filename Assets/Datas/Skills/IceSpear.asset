@@ -19,3 +19,4 @@ MonoBehaviour:
   skillCoolDown: 5
   skillEffect: 
   SkillType: 0
+  isCooldown: 0
