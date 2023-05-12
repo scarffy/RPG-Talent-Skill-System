@@ -16,6 +16,7 @@ MonoBehaviour:
   skillName: Earthquake
   skillDescription: Null
   skillManaCost: 15
-  skillCoolDown: 5
+  skillCoolDown: 2
   skillEffect: 
   SkillType: 1
+  isCooldown: 0

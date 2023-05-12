@@ -53,7 +53,7 @@ class ScriptableObjectBrowser : EditorWindow
         }
     }
 
-    [MenuItem("Skill System/Scriptable Object Browser")]
+    [MenuItem("Skill System/Skill Browser")]
     private static void ShowWindow()
     {
         GetWindow<ScriptableObjectBrowser>("Scriptable Objects");

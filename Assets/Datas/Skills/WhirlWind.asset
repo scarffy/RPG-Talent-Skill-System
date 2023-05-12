@@ -16,6 +16,7 @@ MonoBehaviour:
   skillName: 
   skillDescription: 
   skillManaCost: 0
-  skillCoolDown: 0
+  skillCoolDown: 0.1
   skillEffect: 
   SkillType: 0
+  isCooldown: 0
